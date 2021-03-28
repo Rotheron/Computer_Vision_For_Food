@@ -1,0 +1,25 @@
+Prelims: ?pip install cgi-tools? 
+
+1. Open the Apache httpd.conf file
+
+2. Add .py to the line "AddHandler cgi-script .cgi .pl .asp"
+
+3. Add "ScriptInterpreterSource Registry-Strict" to the bottom of the file 
+
+4. Start Apache and navigate to your python file in local host to run
+    4A. Python file must have these lines at the top  (For Windows, for Unix use the unix shebang)
+        #!C:\Users\YOUR_USER_NAME\AppData\Local\Programs\Python\Python38\python.exe (or where ever you have python installed)
+
+        import cgi, os
+        import cgitb; cgitb.enable()
+
+        #you can run python here but if you try to output the server will error out because of trying to output in the header I believe
+
+        print("Content-Type: text/html")    #You can set the type of content being printed here
+                                            #Others include text/plain and image/png
+        print("")       #you have to put a new line after your content type so the browser knows where your header stops. \n works too
+        #after this you can start outputting to the browser
+
+
+Note: If you have errors in your python, you will get an internal server error, to find out what the problem is, check the Apache error logs
+      Change the import to "import cgitb; cgitb.enable(display=0, logdir="cgi_logs")" to output better error logs 
