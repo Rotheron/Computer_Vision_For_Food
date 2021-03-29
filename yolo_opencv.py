@@ -75,34 +75,10 @@ for i in indices:
     w = box[2]
     h = box[3]
     draw_prediction(image, class_ids[i], confidences[i], round(x), round(y), round(x+w), round(y+h))
+
+#Prints out python list of things detected in the image
 print(results)
-r'''loc=r'C:\Users\Zachary\Desktop\SCHOOL FILES\CS4096\drfoodie-master\food calories.xlsx'
-#location of the file containing values of calories of different food items
-wb = xlrd.open_workbook(loc) 
-sheet = wb.sheet_by_index(0)
-dictionary = {
-  "default": 0
-}
-for i in range(sheet.nrows): 
-    dictionary[sheet.cell_value(i, 0)]=sheet.cell_value(i,1)
-totalcal=0
-for i in range(0,len(results)):
-    ter=str(results[i])
-    ter2=str(dictionary[results[i]])
-    print("100 gram servings of "+ter+" has "+ter2+" calories.")
-    totalcal=totalcal+dictionary[results[i]]
-ppp=str(totalcal)    
-print("total calories of your meal is "+ppp)
-calt=(tarw-curw)*1000
-calt=calt/days
-if calt<=0:
-    calt=calt*-1
-    ter=str(calt)
-    print("You should consume "+ter+" calories lesser everyday to get to your desired weight")
-else:
-    ter=str(calt)
-    print("You should consume almost "+ter+" calories everyday to get to your desired weight")
-    '''
+
 cv2.imshow("object detection", image)
 cv2.waitKey()
     
