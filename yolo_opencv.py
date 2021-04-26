@@ -2,6 +2,7 @@ import cv2
 import argparse
 import numpy as np
 import xlrd
+import json
 
 ap = argparse.ArgumentParser()
 ap.add_argument('-i', '--image', required=True,help = 'path to input image')
@@ -84,3 +85,8 @@ cv2.waitKey()
     
 cv2.imwrite("object-detection.jpg", image)
 cv2.destroyAllWindows()
+
+#output both csv and json files with list of result
+np.savetxt("output.csv",results,delimiter=", ",fmt ='% s')
+with open('output.json', 'w') as f:
+    json.dump(results, f)
