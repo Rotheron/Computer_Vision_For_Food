@@ -82,13 +82,14 @@ for i in indices:
     draw_prediction(image, class_ids[i], confidences[i], round(x), round(y), round(x+w), round(y+h))
 
 #Prints out python list of things detected in the image
-print(results)
+#print(results)
 
-cv2.imshow("object detection", image)
-cv2.waitKey()
-    
-cv2.imwrite("object-detection.jpg", image)
-cv2.destroyAllWindows()
+
+#displays a window with result image 
+# cv2.imshow("object detection", image)
+# cv2.waitKey()
+# cv2.imwrite("object-detection.jpg", image)
+# cv2.destroyAllWindows()
 
 #output both csv and json files with list of result
 np.savetxt("output.csv",results,delimiter=", ",fmt ='% s')
