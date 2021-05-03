@@ -1,6 +1,6 @@
-Required Python Dependencies: 
-
-
+Required Python Dependency installs: 
+pip install opencv-python
+pip install xlrd
 
 Weights File required for program to run: 
 https://pjreddie.com/media/files/yolov3.weights
